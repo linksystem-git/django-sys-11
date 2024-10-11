@@ -160,7 +160,7 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
            
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ user.username }}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -203,10 +203,10 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
+                <span>Deconnexion</span>
+              </a>  
             </li>
 
           </ul><!-- End Profile Dropdown Items -->
@@ -361,12 +361,12 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Nom</div>
-                    <div class="col-lg-9 col-md-8">Anderson</div>
+                    <div class="col-lg-9 col-md-8">Noumazalaye</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Prenom</div>
-                    <div class="col-lg-9 col-md-8">Kevin</div>
+                    <div class="col-lg-9 col-md-8">Ambroise</div>
                   </div>
 
                   <div class="row">
@@ -381,7 +381,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                    <div class="col-lg-9 col-md-8">ambroise@example.com</div>
                   </div>
 
                 </div>

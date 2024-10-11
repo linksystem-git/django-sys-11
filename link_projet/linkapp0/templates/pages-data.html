@@ -291,10 +291,10 @@
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
                   <i class="bi bi-box-arrow-right"></i>
-                  <span>Sign Out</span>
-                </a>
+                  <span>Deconnexion</span>
+                </a>  
               </li>
             </ul>
             <!-- End Profile Dropdown Items -->
@@ -538,6 +538,16 @@
       ><i class="bi bi-arrow-up-short"></i
     ></a>
 
+
+    {% if messages %}
+    <script>
+      alert("{% for message in messages %}{{ message }}{% endfor %}");
+    </script>
+    {% endif %} {% if messages %}
+    <div class="alert alert-danger" role="alert">
+      {% for message in messages %} {{ message }} {% endfor %}
+    </div>
+    {% endif %}
 
 
 
