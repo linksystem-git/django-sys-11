@@ -1,0 +1,23 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+
+# Environnement virtuel
+myenv/
+
+# Fichiers de base de données
+*.sqlite3
+
+# Dossiers de médias
+media/
+
+
+# Fichiers de configuration de l'IDE
+.vscode/
+*.swp
+
+# Fichiers de configuration
+*.env
