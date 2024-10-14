@@ -70,61 +70,57 @@
           <button class="Btnfermer"><i class="bx bxs-x-circle"></i></button>
       </div>
       <form id="edit-form" class="col-md-12" method="POST" action="{% url 'edit_prospect' %}">
-          {% csrf_token %}
-          <h5>Modifier les informations</h5>
- 
-
-
-          <div class="row">
-              <div class="col-lg-6">
-
+        {% csrf_token %}
+        
+        <h5>Modifier les informations</h5>
+        <div class="row">
+            <div class="col-lg-6">
                 <input type="hidden" name="prospect_id" id="prospect_id">
-
-                    <div class="col-md-12">
-                      <label for="prospect" class="form-label">Prospect</label>
-                      <input type="text" class="form-control" id="prospect" name="prospect" required>
-                    </div>
-                    <div class="col-md-12">
-                      <label for="Adresse" class="form-label">Adresse</label>
-                      <input type="text" class="form-control" id="Adresse" name="adresse" required>
-                    </div>
-                    <div class="col-md-12">
-                      <label for="Contact" class="form-label">Contact</label>
-                      <input type="text" class="form-control" id="Contact" name="contact" required>
-                    </div>
-                    <div class="col-md-12">
-                      <label for="Referant" class="form-label">Référant</label>
-                      <input type="text" class="form-control" id="Referant" name="referant" required>
-                  </div>
-             </div>
-              <div class="col-lg-6">
-
-              <div class="col-md-12">
-                  <label for="contact_referant" class="form-label">Contact Référant</label>
-                  <input type="text" class="form-control" id="contact_referant" name="contact_referant" required>
-              </div>
-              <div class="col-md-12">
-                  <label for="objet_courier" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="objet_courier" name="email" required>
-              </div>
-              <div class="col-md-12">
-                  <label for="date_depot" class="form-label">Date Dépôt</label>
-                  <input type="date" class="form-control" id="date_depot" name="date_depot" required>
-              </div>
-              </div>
-          </div>
-
-          <div class="text-center m-t-1">
+                <div class="col-md-12">
+                    <label for="prospect" class="form-label">Prospect</label>
+                    <input type="text" class="form-control" id="prospect" name="prospect" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="Adresse" class="form-label">Adresse</label>
+                    <input type="text" class="form-control" id="Adresse" name="adresse" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="Contact" class="form-label">Contact</label>
+                    <input type="text" class="form-control" id="Contact" name="contact" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="Referant" class="form-label">Référant</label>
+                    <input type="text" class="form-control" id="Referant" name="referant" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="col-md-12">
+                    <label for="contact_referant" class="form-label">Contact Référant</label>
+                    <input type="text" class="form-control" id="contact_referant" name="contact_referant" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="objet_courier" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="objet_courier" name="email" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="date_depot" class="form-label">Date Dépôt</label>
+                    <input type="date" class="form-control" id="date_depot" name="date_depot" required>
+                </div>
+            </div>
+        </div>
+      
+        <div class="text-center m-t-1">
             <button type="submit" class="btn btn-primary" name="action" value="modifier">
-              <i class="ri-edit-2-line"></i> Modifier
+                <i class="ri-edit-2-line"></i> Modifier
             </button>
-            
-            <button type="button" class="btn btn-danger" id="delete-button">
+      
+            <button type="button" id="delete-button" class="btn btn-danger">
               <i class="ri-delete-bin-6-line"></i> Supprimer
-            </button>
-            
-          </div>
+          </button>
+          
+        </div>
       </form>
+      
   </div>
 </div>
 
@@ -570,6 +566,22 @@
           alert("{% for message in messages %}{{ message }}{% endfor %}");
       {% endif %}
   </script>
+
+  <script>
+    document.getElementById("delete-button").addEventListener("click", function() {
+        // Récupère l'ID du prospect sélectionné depuis le champ caché
+        var prospectId = document.getElementById("prospect_id").value;
+
+        // Vérifie si l'ID est présent
+        if (prospectId) {
+            // Redirige vers l'URL de suppression avec l'ID du prospect
+            window.location.href = '/prospects/delete/' + prospectId + '/';
+        } else {
+            alert("Veuillez sélectionner un prospect avant de supprimer.");
+        }
+    });
+</script>
+
 
 
     <!-- Vendor JS Files -->

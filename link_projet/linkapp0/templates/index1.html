@@ -339,7 +339,7 @@
           <!-- Left side columns -->
           <div class="col-lg-8">
             <div class="row">
-              <!-- Sales Card -->
+              <!-- carte des sites -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
                   <div class="filter">
@@ -377,54 +377,44 @@
                   </div>
                 </div>
               </div>
-              <!-- End Sales Card -->
+              <!-- End carte des sites -->
 
-              <!-- Revenue Card -->
+              <!-- carte de dossier -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card revenue-card">
                   <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"
-                      ><i class="bi bi-three-dots"></i
-                    ></a>
-                    <ul
-                      class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
-                    >
+                    <a class="icon" href="#" data-bs-toggle="dropdown">
+                      <i class="bi bi-three-dots"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                       <li class="dropdown-header text-start">
                         <h6>Filter</h6>
                       </li>
-
-                      <li><a class="dropdown-item" href="#">En cours</a></li>
-                      <li><a class="dropdown-item" href="#">A signé</a></li>
-                      <li><a class="dropdown-item" href="#">Terminé</a></li>
+                      <li><a class="dropdown-item" href="#" data-filter="en_cours">En cours</a></li>
+                      <li><a class="dropdown-item" href="#" data-filter="en_attente">En attente</a></li>
+                      <li><a class="dropdown-item" href="#" data-filter="signe">Signé</a></li>
+                      <li><a class="dropdown-item" href="#" data-filter="termine">Terminé</a></li>
                     </ul>
                   </div>
-
+              
                   <div class="card-body">
                     <h5 class="card-title">
-                      Dossiers <span>| En cours</span>
+                      Dossiers <span id="filter-title">| En cours</span>
                     </h5>
-
+              
                     <div class="d-flex align-items-center">
-                      <div
-                        class="card-icon rounded-circle d-flex align-items-center justify-content-center"
-                      >
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                         <i class="ri-clipboard-line"></i>
                       </div>
                       <div class="ps-3">
-                        <h6>6</h6>
-                        <span class="text-success small pt-1 fw-bold">8%</span>
-                        <span class="text-muted small pt-2 ps-1">increase</span>
+                        <h6 id="dossier-count"></h6>
+                        <span class="text-muted small pt-2 ps-1">Dossiers</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- End Revenue Card -->
-
-              <!-- Customers Card -->
-
-              <!-- End Customers Card -->
-
+              
               <!-- Reports -->
               <div class="col-12">
                 <div class="card">
@@ -539,106 +529,7 @@
 
           <!-- Right side columns -->
           <div class="col-lg-4">
-            <!-- Recent Activity -->
-            <div class="card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"
-                  ><i class="bi bi-three-dots"></i
-                ></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Aujourd'hui</a></li>
-                  <li><a class="dropdown-item" href="#">cette semaine</a></li>
-                  <li><a class="dropdown-item" href="#">ce mois ci</a></li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title">activité recente <span>| Today</span></h5>
-
-                <div class="activity">
-                  <div class="activity-item d-flex">
-                    <div class="activite-label">32 min</div>
-                    <i
-                      class="bi bi-circle-fill activity-badge text-success align-self-start"
-                    ></i>
-                    <div class="activity-content">
-                      Quia quae rerum
-                      <a href="#" class="fw-bold text-dark"
-                        >explicabo officiis</a
-                      >
-                      beatae
-                    </div>
-                  </div>
-                  <!-- End activity item-->
-
-                  <div class="activity-item d-flex">
-                    <div class="activite-label">56 min</div>
-                    <i
-                      class="bi bi-circle-fill activity-badge text-danger align-self-start"
-                    ></i>
-                    <div class="activity-content">
-                      Voluptatem blanditiis blanditiis eveniet
-                    </div>
-                  </div>
-                  <!-- End activity item-->
-
-                  <div class="activity-item d-flex">
-                    <div class="activite-label">2 hrs</div>
-                    <i
-                      class="bi bi-circle-fill activity-badge text-primary align-self-start"
-                    ></i>
-                    <div class="activity-content">
-                      Voluptates corrupti molestias voluptatem
-                    </div>
-                  </div>
-                  <!-- End activity item-->
-
-                  <div class="activity-item d-flex">
-                    <div class="activite-label">1 day</div>
-                    <i
-                      class="bi bi-circle-fill activity-badge text-info align-self-start"
-                    ></i>
-                    <div class="activity-content">
-                      Tempore autem saepe
-                      <a href="#" class="fw-bold text-dark"
-                        >occaecati voluptatem</a
-                      >
-                      tempore
-                    </div>
-                  </div>
-                  <!-- End activity item-->
-
-                  <div class="activity-item d-flex">
-                    <div class="activite-label">2 days</div>
-                    <i
-                      class="bi bi-circle-fill activity-badge text-warning align-self-start"
-                    ></i>
-                    <div class="activity-content">
-                      Est sit eum reiciendis exercitationem
-                    </div>
-                  </div>
-                  <!-- End activity item-->
-
-                  <div class="activity-item d-flex">
-                    <div class="activite-label">4 weeks</div>
-                    <i
-                      class="bi bi-circle-fill activity-badge text-muted align-self-start"
-                    ></i>
-                    <div class="activity-content">
-                      Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                    </div>
-                  </div>
-                  <!-- End activity item-->
-                </div>
-              </div>
-            </div>
-
-
-            <!-- Website Traffic -->
+            <!-- bilan incident  -->
             <div class="card">
               <div class="filter">
                 <a class="icon" href="#" data-bs-toggle="dropdown"
@@ -750,6 +641,46 @@
       class="back-to-top d-flex align-items-center justify-content-center"
       ><i class="bi bi-arrow-up-short"></i
     ></a>
+
+
+
+    <script>
+    // Fonction pour récupérer et mettre à jour dynamiquement le nombre de dossiers
+    document.addEventListener("DOMContentLoaded", function() {
+      // Mettre à jour le nombre de dossiers pour "En cours" au chargement de la page
+      updateDossierCount('en_cours');
+  });
+  
+  function updateDossierCount(filter) {
+      fetch(`/get_dossier_count/?filter=${filter}`)
+         .then(response => response.json())
+         .then(data => {
+             document.getElementById('dossier-count').textContent = data.count;
+             document.getElementById('filter-title').textContent = `| ${capitalizeFirstLetter(filter.replace('_', ' '))}`;
+         })
+         .catch(error => console.error("Erreur lors de la récupération des données:", error));
+  }
+  
+    
+    // Rest of your code remains the same
+    
+
+// Utilitaire pour capitaliser les filtres
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// Attacher un événement à chaque option de filtre
+document.querySelectorAll('.dropdown-item').forEach(item => {
+  item.addEventListener('click', (event) => {
+    event.preventDefault(); // Empêche le lien de rediriger
+    const filter = event.target.getAttribute('data-filter');
+    updateDossierCount(filter);
+  });
+});
+
+
+    </script>
 
     <!-- Vendor JS Files -->
 

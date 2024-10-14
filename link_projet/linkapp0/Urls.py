@@ -15,13 +15,18 @@ urlpatterns = [
     path('home/', login_required(home), name='home'),  
     path('Data/', login_required(datas), name='datas'),  
     path('dossier/', login_required(page_dossiers), name='page_dossiers'),
-    path('prospects/', login_required(page_prospects), name='page_prospects'),
+    
     path('suivie/', login_required(suivie), name='suivie'),
     path('profile/', login_required(profiles), name='profiles'),  
     path('planning/', login_required(planning), name='planning'),   
     path('clients/', login_required(page_clients), name='page_clients'), 
+    
+    
+    #---------------------------gestion prospect---------------------------------------
+    path('prospects/', login_required(page_prospects), name='page_prospects'),
     path('update_prospect/', login_required(views.edit_prospect), name='edit_prospect'),
-    path('delete_prospect/<int:prospect_id>/', login_required(views.delete_prospect), name='delete_prospect'),
+    path('prospects/delete/<int:prospect_id>/', views.delete_prospect, name='delete_prospect'),
+   
 
     #----------------------gestion dossier------------------------------------------
     path('supprimer-dossier/<int:dossier_id>/', login_required(supprimer_dossier), name='supprimer_dossier'),
@@ -41,4 +46,7 @@ urlpatterns = [
 
     #---------------------deconnexion----------------------------------------
     path('deconnexion/', login_required(logout_view), name='logout'),
+
+    #---------------------------------home--------------------------------------
+     path('get_dossier_count/', views.get_dossier_count, name='get_dossier_count'),
 ]

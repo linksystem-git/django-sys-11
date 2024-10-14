@@ -74,19 +74,21 @@ def page_prospects(request):
 
 
 #================================================================================================
-from django.shortcuts import get_object_or_404, redirect
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from .models import Prospect
 
+@csrf_exempt  # Nécessaire pour désactiver la vérification CSRF uniquement pour les requêtes DELETE
 def delete_prospect(request, prospect_id):
-    # Corriger l'utilisation du champ idprospect au lieu de id
     prospect = get_object_or_404(Prospect, idprospect=prospect_id)
     
-    if request.method == 'DELETE':
+    if request.method == 'DELETE':  # Vérifier si la méthode est bien DELETE
         prospect.delete()
         return JsonResponse({'message': 'Prospect supprimé avec succès.'}, status=200)
     else:
         return JsonResponse({'error': 'Méthode non autorisée'}, status=405)
+
 
 #================================================================================================
 
@@ -121,8 +123,17 @@ def edit_prospect(request):
     # Rendre la page avec la liste des prospects (et possiblement d'autres données)
     prospects = Prospect.objects.all()
     context = {'prospects': prospects}
-    return render(request, 'page_prospects.html', context)
+    return render(request, 'pages_prospects.html', context)
 
+
+from django.shortcuts import redirect, get_object_or_404
+from .models import Prospect
+
+def delete_prospect(request, prospect_id):
+    # Récupération et suppression de l'objet
+    prospect = get_object_or_404(Prospect, idprospect=prospect_id)
+    prospect.delete()
+    return redirect('page_prospects')
 
 
 
@@ -491,3 +502,26 @@ def edit_data(request):
     
     logger.warning("Requête non autorisée.")
     return JsonResponse({'success': False, 'error': 'Requête non autorisée.'})
+
+
+
+
+#============================================================acceuille
+
+from django.http import JsonResponse
+from .models import Dossier
+
+def get_dossier_count(request):
+    filter_type = request.GET.get('filter')
+    if filter_type == 'en_cours':
+        count = Dossier.objects.filter(statut__in=['rdv1_a_fixer', 'rdv1_pris', 'devis_remis_negociation', 'signe_a_valider']).count()
+    elif filter_type == 'en_attente':
+        count = Dossier.objects.filter(statut__in=['sans_suite_abandonne', 'perdu', 'en_attente']).count()
+    elif filter_type == 'signe':
+        count = Dossier.objects.filter(statut='signe_valide').count()
+    elif filter_type == 'termine':
+        count = Dossier.objects.filter(statut='termine').count()
+    else:
+        count = 0
+    
+    return JsonResponse({'count': count})

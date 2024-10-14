@@ -93,24 +93,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //----------------------------gestion des confirmations ---------------------------------------------
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const deleteButton = document.getElementById("delete-button");
-    const deleteForm = document.getElementById("delete-client-form");
-    const clientIdInput = document.getElementById("client_id");
-
-    deleteButton.addEventListener("click", function () {
-      const clientId = document.getElementById("prospect_id").value; // Assure-toi que cet ID est correctement défini ailleurs dans ton code
-
-      if (
-        confirm(
-          "Êtes-vous sûr de vouloir supprimer ce client et mettre à jour les dossiers associés ?"
-        )
-      ) {
-        clientIdInput.value = clientId;
-        deleteForm.submit();
-      }
-    });
-  });
-
   //--------------------------------------------------verification
 });
